@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | LILAH</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">Lilah</a>
+
+            <!-- Bootstrap Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myprojects.html">My projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Hero Section -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1 class="section-title">My Creative Work</h1>
+            <p class="lead">A collection of my favorite projects and designs</p>
+        </div>
+    </section>
+
+    <!-- Projects Filter -->
+    <section class="container py-5">
+        <div class="text-center project-filter">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="Video">Video</button>
+            <button class="filter-btn" data-filter="Art">Art</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="row" id="projects-grid">
+            <!-- Project 1 -->
+            <div class="col-lg-4 col-md-6" data-category="Video">
+                <div class="project-card">
+                    <div class="position-relative">
+                        <img src="./image/https___hk.hypebeast.com_files_2023_10_microsoft-minecraft-all-time-bes-0.avif"
+                            class="project-img" alt="Video Project">
+                        <span class="project-category">Video</span>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Minecraft Gameplay Video</h3>
+                        <div class="project-tags">
+                            <span class="tag">Video Editing</span>
+                            <span class="tag">Youtube</span>
+                        </div>
+                        <p>My gameplay clip with friends.</p>
+                        <a href="https://youtu.be/TXfujZKZpDw" class="btn btn-sm"
+                            style="background: #E2B4BD; color: white;">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-lg-4 col-md-6" data-category="Art">
+                <div class="project-card">
+                    <div class="position-relative">
+                        <img src="./image/image.png" class="project-img" alt="Character">
+                        <span class="project-category">AI/PS</span>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Character design</h3>
+                        <div class="project-tags">
+                            <span class="tag">Adobe Illustrator</span>
+                            <span class="tag">Photoshop</span>
+                            <span class="tag">Painting</span>
+                        </div>
+                        <p>Design my own characters to prepare a story for future game design by me.</p>
+                        <a href="https://drive.google.com/drive/folders/1rpFzjOGWEjmQd0gbdHb4SPqbGp0hQYFt?usp=sharing" class="btn btn-sm" style="background: #E2B4BD; color: white;">View Project</a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="py-5 text-center" style="background: #FFF9FB;">
+        <div class="container">
+            <h2 class="section-title">Like What You See?</h2>
+            <p class="mb-4">I'm available for freelance projects and collaborations</p>
+            <a href="contact.html" class="btn btn-lg" style="background: #E2B4BD; color: white;">Let's Work Together</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center" style="background: #6D6875; color: white;">
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="https://www.instagram.com/mo_cha.f?igsh=NnV1dG9uMzlwdXhy&utm_source=qr"
+                    class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@lilahyj?si=pSL3OTH1TF_FAADg" class="text-white mx-2"><i
+                        class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Lilah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('[data-category]');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
